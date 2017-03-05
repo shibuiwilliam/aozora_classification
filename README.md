@@ -5,6 +5,7 @@ The Japanese authors include Soseki Natsume(夏目漱石), Ogai Mori(森鴎外),
 
 ## Getting data from Aozora-bunko(青空文庫)
 I'm getting training data from Aozora-bunko, which is a public repository for Japanese classical pieces with outdated copyright.
+
 http://www.aozora.gr.jp/
 
 In order to download text pieces from Aozora-bunko, I made aozora_scrape.py.
@@ -14,7 +15,9 @@ The last csv has each lines splitted by "。", the Japanese form of period, and 
 
 ## Training the model
 Thanks to the following paper and blog, I use character-level convolurional neural network to train the classification model for Japanese sentences.
+
 https://papers.nips.cc/paper/5782-character-level-convolutional-networks-for-text-classification.pdf
+
 http://qiita.com/bokeneko/items/c0f0ce60a998304400c8
 
 After downloading and changing the text to csv, run the aozora_cnn.py to generate classification model.
