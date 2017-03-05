@@ -1,7 +1,4 @@
-
 # coding: utf-8
-
-# In[1]:
 
 from urllib.request import urlopen
 import urllib.request
@@ -33,13 +30,6 @@ auth_target
 
 print (auth_target)
 
-
-# In[ ]:
-
-
-
-
-# In[2]:
 
 # Make directories for authors and csv, text extraction, and utf converted directories for them.
 
@@ -86,7 +76,6 @@ def make_workdir(aozora_dir=aozora_dir, auth_target=auth_target):
                 print (e)
 
 
-# In[3]:
 
 # Downloads all the zip files from author's written pieces.
 
@@ -129,7 +118,7 @@ def download_zip(auth_target=auth_target):
         print ("finished %s" % w[0])
 
 
-# In[4]:
+
 
 # Extract zip files to txt files. Its character encoding is in SHIfT-JIS.
 
@@ -152,7 +141,7 @@ def zip_extract(auth_target=auth_target):
         zip_ext_pds.to_csv(log_dir + w[0] + '_zip_log.csv', quoting=csv.QUOTE_ALL)
 
 
-# In[5]:
+
 
 # Making txt files with SHIFT-JIS converted to UTF-8.
 
@@ -185,7 +174,7 @@ def convert_sjis_to_utf8(auth_target=auth_target):
         convert_pds.to_csv(log_dir + w[0] + '_cvt_log.csv', quoting=csv.QUOTE_ALL)
 
 
-# In[6]:
+
 
 # Cleansing UTF-8 texts and convert them to files to CSV.
 
@@ -235,22 +224,6 @@ def data_cleanse(auth_target=auth_target):
         print ("finished: " + w[0])
 
 
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[7]:
 
 if __name__ == "__main__":
     make_workdir(aozora_dir, auth_target)
@@ -260,42 +233,5 @@ if __name__ == "__main__":
     data_cleanse(auth_target)
 
 
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[8]:
-
 print ("finished")
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
 
