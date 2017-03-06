@@ -6,7 +6,8 @@ This is data integrating and training script for author classification using Ker
 Be sure to get the text files from Aozora-bunko and convert them to UTF-8 encoded csv files, just by running aozora-scrape.py.
 """
 
-import sys, os.path, re, csv
+
+import sys, os.path, re, csv, os, glob
 import pandas as pds
 import numpy as np
 import zipfile
@@ -201,6 +202,13 @@ def train(inputs, targets, batch_size=100, epoch_count=100, max_length=200, mode
                   optimizer='adam',
                   metrics=['accuracy'])
     model.summary()
+    
+    
+    target = os.path.join('/tmp', 'weights.*.hdf5')
+    files = [(f, os.path.getmtime(f)) for f in glob.glob(target)]
+    if len(files) != 0:
+        latest_saved_model = sorted(files, key=lambda files: files[1])[-1]
+        model.load_weights(latest_saved_model[0])
     
     # Logging file for each epoch
     csv_logger_file = '/tmp/clcnn_training.log'
