@@ -68,7 +68,7 @@ def author_data_integ(auth_target=auth_target):
         print ("finished: " + w[0])
 
 
-
+author_data_integ()
 
 # Loading integrated csv files.
 
@@ -183,7 +183,7 @@ def create_model(embed_size=128, max_length=200, filter_sizes=(2, 3, 4, 5), filt
     fc1 = Dense(64, activation="relu")(reshape)
     bn1 = BatchNormalization()(fc1)
     do1 = Dropout(0.5)(bn1)
-    fc2 = Dense(3, activation='sigmoid')(do1)
+    fc2 = Dense(4, activation='sigmoid')(do1)
     model = Model(input=inp, output=fc2)
     return model
 
