@@ -45,6 +45,6 @@ if __name__ == "__main__":
 
 
 
-pds_predict_result
+print(pds_predict_result)
 
 
